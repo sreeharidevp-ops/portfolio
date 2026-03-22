@@ -4,16 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <!-- ── Primary SEO ── -->
   <title>Sreehari Kalarikkal | Web Developer &amp; Graphic Designer | designerhari.com</title>
   <meta name="description" content="Sreehari Kalarikkal — front-end web developer and graphic designer from Malappuram, Kerala with 7+ years of experience in UI/UX, responsive websites and branding." />
   <meta name="keywords" content="Sreehari Kalarikkal, designerhari, web developer Kerala, graphic designer Malappuram, UI UX designer India, front-end developer, Bootstrap, Figma, Adobe XD" />
   <meta name="author" content="Sreehari Kalarikkal" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <link rel="canonical" href="https://www.designerhari.com/" />
-
-  <!-- ── Open Graph ── -->
   <meta property="og:type"        content="website" />
   <meta property="og:url"         content="https://www.designerhari.com/" />
   <meta property="og:title"       content="Sreehari Kalarikkal | Web Developer &amp; Graphic Designer" />
@@ -21,40 +17,32 @@
   <meta property="og:image"       content="https://www.designerhari.com/assets/img/profile-img.jpg" />
   <meta property="og:site_name"   content="designerhari.com" />
   <meta property="og:locale"      content="en_IN" />
-
-  <!-- ── Twitter Card ── -->
   <meta name="twitter:card"        content="summary_large_image" />
   <meta name="twitter:site"        content="@SreehariKalari1" />
   <meta name="twitter:title"       content="Sreehari Kalarikkal | designerhari.com" />
   <meta name="twitter:description" content="Web Developer &amp; Graphic Designer from Kerala, India." />
   <meta name="twitter:image"       content="https://www.designerhari.com/assets/img/profile-img.jpg" />
-
-  <!-- ── Schema.org Person ── -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Sreehari Kalarikkal","url":"https://www.designerhari.com/","image":"https://www.designerhari.com/assets/img/profile-img.jpg","sameAs":["https://www.linkedin.com/in/sreehari-kalarikkal-6a5216248","https://mobile.twitter.com/SreehariKalari1","https://www.facebook.com/sree8907222751"],"jobTitle":"Web Developer & Graphic Designer","worksFor":{"@type":"Organization","name":"Pagematics"},"address":{"@type":"PostalAddress","addressLocality":"Malappuram","addressRegion":"Kerala","addressCountry":"IN"},"email":"sreeharidevp@gmail.com","telephone":"+918907222751"}</script>
-
-  <!-- ── Preconnect ── -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-
-  <!-- ── Fonts ── -->
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
-
-  <!-- ── Bootstrap 5.3 + Icons ── -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
 
   <style>
     /* ══ TOKENS ══ */
     :root{
-      --dk:#0a0a0a; --d:#111; --cb:#181818; --bdr:#272727;
-      --g:#c8a84b; --gl:#e2c97e; --gd:rgba(200,168,75,.12);
+      --dk:#0a0a0a; --d:#111; --cb:#181818; --bdr:#2e2e2e;
+      --g:#c8a84b; --gl:#e2c97e; --gd:rgba(200,168,75,.13);
       --t1:#f0ede8; --t2:#888480; --t3:#484440;
       --ffd:'Syne',sans-serif; --ffb:'DM Sans',sans-serif;
       --ease:cubic-bezier(.25,.46,.45,.94); --dur:.36s;
-      --sw:270px;   /* sidebar width  */
-      --nc:52px;    /* nav closed     */
-      --no:224px;   /* nav open       */
+      --r:30px;           /* global border-radius */
+      --sw:270px;         /* sidebar width */
+      --nc:62px;          /* right nav closed width  */
+      --no:220px;         /* right nav open width    */
+      --nav-pill-w:46px;  /* floating pill nav width */
     }
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -66,79 +54,157 @@
     ::-webkit-scrollbar-track{background:var(--dk)}
     ::-webkit-scrollbar-thumb{background:var(--g);border-radius:2px}
 
-    /* ══ 3-PANEL SHELL ══ */
+    /* ══ UNIFIED BACKGROUND ══ */
+    body,#hero,#about,#skills,#services,#resume,#portfolio,#contact{background:var(--d)}
+
+    /* ══════════════════════════════════
+       LEFT SIDEBAR — fixed, floating pill
+    ══════════════════════════════════ */
     #sidebar{
-      width:var(--sw);position:fixed;top:0;left:0;bottom:0;z-index:200;
-      background:var(--d);border-right:1px solid var(--bdr);
+      width:var(--sw);
+      position:fixed;top:50%;left:20px;
+      transform:translateY(-50%);
+      z-index:200;
+      background:rgba(20,20,20,.92);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border:1px solid #484848;
+      border-radius:var(--r);
       display:flex;flex-direction:column;align-items:center;
-      padding:2rem 1.6rem 1.4rem;overflow-y:auto;scrollbar-width:none;
+      padding:1.8rem 1.5rem 1.4rem;
+      overflow-y:auto;scrollbar-width:none;
+      max-height:calc(100vh - 40px);
     }
     #sidebar::-webkit-scrollbar{display:none}
-    #main-content{margin-left:var(--sw);margin-right:var(--nc)}
-    #right-nav{
-      width:var(--nc);position:fixed;top:0;right:0;bottom:0;z-index:200;
-      background:var(--d);border-left:1px solid var(--bdr);
-      display:flex;flex-direction:column;overflow:hidden;
-      transition:width var(--dur) var(--ease);
-    }
-    #right-nav.open{width:var(--no)}
 
-    /* ══ HAMBURGER ══ */
+    /* ══════════════════════════════════
+       MAIN CONTENT — offset for panels
+    ══════════════════════════════════ */
+    #main-content{
+      margin-left:calc(var(--sw) + 30px);
+      margin-right:calc(var(--nav-pill-w) + 24px);
+    }
+
+    /* ══════════════════════════════════
+       RIGHT NAV — floating pill, icon-only
+       expands to show labels on hamburger click
+    ══════════════════════════════════ */
+    #right-nav{
+      position:fixed;
+      top:50%;right:16px;
+      transform:translateY(-50%);
+      z-index:200;
+      width:var(--nav-pill-w);
+      background:rgba(20,20,20,.92);
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      border:1px solid #484848;
+      border-radius:var(--r);
+      display:flex;flex-direction:column;
+      align-items:center;
+      overflow:hidden;
+      transition:width var(--dur) var(--ease), border-radius var(--dur) var(--ease);
+      padding:.5rem 0;
+    }
+    #right-nav.open{
+      width:var(--no);
+      border-radius:var(--r);
+      align-items:flex-start;
+    }
+
+    /* ── hamburger at top of pill ── */
     .ham{
-      width:100%;height:var(--nc);display:flex;align-items:center;justify-content:center;
-      background:none;border:none;border-bottom:1px solid var(--bdr);
-      color:var(--t2);font-size:1.25rem;cursor:pointer;flex-shrink:0;
-      transition:color var(--dur);
+      width:var(--nav-pill-w);min-width:var(--nav-pill-w);
+      height:40px;display:flex;align-items:center;justify-content:center;
+      background:none;border:none;
+      color:var(--t2);font-size:1.15rem;cursor:pointer;flex-shrink:0;
+      transition:color var(--dur);margin-bottom:.3rem;
     }
     .ham:hover{color:var(--g)}
+    #right-nav.open .ham{width:100%;justify-content:flex-end;padding-right:.9rem}
 
-    /* ══ RIGHT NAV LIST ══ */
-    .rlist{list-style:none;flex:1;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;padding:.4rem 0}
+    /* ── nav list ── */
+    .rlist{
+      list-style:none;width:100%;
+      overflow:hidden;scrollbar-width:none;
+      padding:0;
+    }
     .rlist::-webkit-scrollbar{display:none}
+    .rlist li{width:100%}
     .rlist li a{
-      display:flex;align-items:center;gap:.85rem;
-      color:var(--t2);font-size:.72rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;
-      white-space:nowrap;overflow:hidden;transition:color var(--dur),background var(--dur);
-      padding:.7rem 0;
+      display:flex;align-items:center;
+      color:var(--t2);
+      font-size:.7rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;
+      white-space:nowrap;overflow:hidden;
+      transition:color var(--dur),background var(--dur);
+      padding:.55rem 0;
+      width:100%;
     }
     .rlist li a:hover,.rlist li a.active{color:var(--g)}
+    /* active indicator dot */
+    .rlist li a.active .ricon{position:relative}
+    .rlist li a.active .ricon::after{
+      content:'';position:absolute;right:6px;top:50%;transform:translateY(-50%);
+      width:4px;height:4px;border-radius:50%;background:var(--g);
+    }
+
     .ricon{
-      width:var(--nc);min-width:var(--nc);display:flex;align-items:center;justify-content:center;
+      min-width:var(--nav-pill-w);width:var(--nav-pill-w);
+      display:flex;align-items:center;justify-content:center;
       font-size:1rem;flex-shrink:0;
     }
-    .rlabel{opacity:0;transform:translateX(-6px);transition:opacity .22s ease,transform .22s ease;pointer-events:none}
+    .rlabel{
+      opacity:0;transform:translateX(-6px);
+      transition:opacity .2s ease,transform .2s ease;
+      pointer-events:none;font-size:.72rem;
+    }
     #right-nav.open .rlabel{opacity:1;transform:translateX(0)}
 
+    /* ── social row at bottom of pill ── */
     .rsocial{
-      padding:.9rem 0;border-top:1px solid var(--bdr);
-      display:flex;flex-direction:column;align-items:center;gap:.55rem;
+      width:100%;
+      padding:.6rem 0 .2rem;
+      border-top:1px solid var(--bdr);
+      display:flex;flex-direction:column;align-items:center;gap:.45rem;
+      margin-top:.3rem;
     }
-    #right-nav.open .rsocial{flex-direction:row;flex-wrap:wrap;padding-left:.6rem;justify-content:flex-start}
-    .rsocial a{color:var(--t3);font-size:.88rem;transition:color var(--dur)}
+    #right-nav.open .rsocial{flex-direction:row;flex-wrap:wrap;padding:.6rem .6rem .2rem;gap:.5rem;justify-content:flex-start}
+    .rsocial a{color:var(--t3);font-size:.85rem;transition:color var(--dur);padding:.15rem}
     .rsocial a:hover{color:var(--g)}
 
-    /* ══ LEFT SIDEBAR ══ */
-    .sb-toprow{display:flex;flex-direction:column;align-items:flex-start;width:100%;gap:.35rem;margin-bottom:1.4rem}
-    .sb-brand{font-family:var(--ffd);font-weight:800;font-size:1.2rem;letter-spacing:-.02em;color:var(--t1);display:flex;align-items:center;gap:.35rem;white-space:nowrap}
+    /* ══ LEFT SIDEBAR INTERNALS ══ */
+    .sb-toprow{display:flex;flex-direction:column;align-items:flex-start;width:100%;gap:.3rem;margin-bottom:1.3rem}
+    .sb-brand{font-family:var(--ffd);font-weight:800;font-size:1.15rem;letter-spacing:-.02em;color:var(--t1);display:flex;align-items:center;gap:.3rem;white-space:nowrap}
     .sb-brand span{color:var(--g)}
-    .sb-badge{width:18px;height:18px;border:1px solid var(--bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.48rem;color:var(--t3);flex-shrink:0}
-    .sb-role{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);text-align:left;line-height:1.5;white-space:nowrap}
-    .sb-photo{width:100%;border-radius:10px;overflow:hidden;border:1px solid var(--bdr);filter:grayscale(1) contrast(1.05);transition:filter .5s;aspect-ratio:1}
+    .sb-badge{width:16px;height:16px;border:1px solid var(--bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.44rem;color:var(--t3);flex-shrink:0}
+    .sb-role{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--t2);white-space:nowrap}
+    .sb-photo{
+      width:100%;
+      border-radius:var(--r);
+      overflow:hidden;border:1px solid var(--bdr);
+      filter:grayscale(1) contrast(1.05);transition:filter .5s;aspect-ratio:1;
+    }
     .sb-photo:hover{filter:grayscale(.1)}
     .sb-photo img{width:100%;height:100%;object-fit:cover}
-    .sb-email{margin-top:1.1rem;text-align:center;font-size:.78rem;color:var(--t2)}
+    .sb-email{margin-top:1rem;text-align:center;font-size:.75rem;color:var(--t2)}
     .sb-email a{color:var(--t2);transition:color var(--dur)}
     .sb-email a:hover{color:var(--g)}
-    .sb-loc{font-size:.74rem;color:var(--t2);text-align:center;margin-top:.2rem}
-    .sb-copy{font-size:.6rem;color:var(--t3);text-align:center;margin-top:.7rem}
-    .sb-soc{display:flex;gap:.45rem;justify-content:center;margin-top:.85rem;flex-wrap:wrap}
-    .sb-soc a{width:30px;height:30px;border:1px solid var(--bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--t3);font-size:.82rem;transition:all var(--dur)}
+    .sb-loc{font-size:.72rem;color:var(--t2);text-align:center;margin-top:.18rem}
+    .sb-copy{font-size:.58rem;color:var(--t3);text-align:center;margin-top:.6rem}
+    .sb-soc{display:flex;gap:.4rem;justify-content:center;margin-top:.75rem;flex-wrap:wrap}
+    .sb-soc a{
+      width:28px;height:28px;
+      border:1px solid var(--bdr);border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--t3);font-size:.78rem;transition:all var(--dur);
+    }
     .sb-soc a:hover{border-color:var(--g);color:var(--g);background:var(--gd)}
     .btn-hire{
       display:flex;align-items:center;justify-content:center;gap:.4rem;width:100%;
-      background:var(--g);color:var(--dk);font-family:var(--ffb);font-size:.76rem;font-weight:500;
-      letter-spacing:.1em;text-transform:uppercase;border:none;padding:.72rem;border-radius:4px;
-      margin-top:1.1rem;cursor:pointer;transition:background var(--dur),transform var(--dur);
+      background:var(--g);color:var(--dk);font-family:var(--ffb);font-size:.74rem;font-weight:500;
+      letter-spacing:.1em;text-transform:uppercase;border:none;
+      padding:.7rem;border-radius:var(--r);
+      margin-top:1rem;cursor:pointer;transition:background var(--dur),transform var(--dur);
     }
     .btn-hire:hover{background:var(--gl);transform:translateY(-1px);color:var(--dk)}
 
@@ -156,15 +222,95 @@
     .rv.fr{transform:translateX(34px)}
     .rv.on{opacity:1;transform:translate(0,0)}
 
-    /* ══ HERO ══ */
-    #hero{
-      min-height:100vh;background:var(--dk);
-      display:flex;flex-direction:column;justify-content:center;
-      position:relative;overflow:hidden;padding:3.5rem 3.2rem;
+    /* ══ HERO BACKGROUND IMAGE ══ */
+    .hero-bg{
+      position:absolute;
+      inset:-6%;              /* oversized so parallax/Ken Burns never shows edges */
+      z-index:0;
+      background: url('https://sreeharikalarikkal.com/assets/img/hero-bg.jpg') center center / cover no-repeat;
+      will-change:transform;
+      animation:kenBurns 24s ease-in-out infinite alternate;
     }
-    .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(200,168,75,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(200,168,75,.03) 1px,transparent 1px);background-size:54px 54px;pointer-events:none}
-    .hglow{position:absolute;top:-160px;right:-80px;width:480px;height:480px;background:radial-gradient(circle,rgba(200,168,75,.07) 0%,transparent 70%);pointer-events:none}
-    .hbadge{display:inline-block;font-size:.67rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--g);border:1px solid rgba(200,168,75,.3);padding:.32rem .85rem;margin-bottom:1.3rem}
+    @keyframes kenBurns{
+      0%   { transform:scale(1.08) translate(0px, 0px); }
+      33%  { transform:scale(1.13) translate(-8px, 5px); }
+      66%  { transform:scale(1.10) translate(6px, -4px); }
+      100% { transform:scale(1.08) translate(-4px, 3px); }
+    }
+    /* main dark overlay — keeps text legible */
+    .hero-bg::before{
+      content:'';position:absolute;inset:0;
+      background:rgba(10,10,10,.70);
+    }
+    /* directional vignette — darker on left (text side) + bottom/top edges */
+    .hero-bg::after{
+      content:'';position:absolute;inset:0;
+      background:
+        linear-gradient(105deg,
+          rgba(10,10,10,.75) 0%,
+          rgba(10,10,10,.30) 55%,
+          rgba(10,10,10,.50) 100%),
+        linear-gradient(to bottom,
+          rgba(10,10,10,.45) 0%,
+          transparent 35%,
+          transparent 65%,
+          rgba(10,10,10,.55) 100%);
+    }
+
+    /* ══ CUSTOM CURSOR ══ */
+    #cur-outer{
+      position:fixed;top:0;left:0;
+      width:36px;height:36px;
+      border:1.5px solid var(--g);
+      border-radius:50%;
+      pointer-events:none;
+      z-index:9999;
+      transform:translate(-50%,-50%);
+      transition:width .3s var(--ease),height .3s var(--ease),
+                 border-color .3s ease,background .3s ease,
+                 opacity .3s ease;
+      will-change:transform;
+      mix-blend-mode:normal;
+    }
+    #cur-inner{
+      position:fixed;top:0;left:0;
+      width:6px;height:6px;
+      background:var(--g);
+      border-radius:50%;
+      pointer-events:none;
+      z-index:9999;
+      transform:translate(-50%,-50%);
+      transition:width .15s ease,height .15s ease,background .2s ease;
+      will-change:transform;
+    }
+    /* cursor hover state — applied via JS */
+    body.cur-hover #cur-outer{
+      width:52px;height:52px;
+      background:rgba(200,168,75,.08);
+      border-color:var(--gl);
+    }
+    body.cur-hover #cur-inner{
+      width:4px;height:4px;
+      background:var(--gl);
+    }
+    body.cur-click #cur-outer{
+      width:28px;height:28px;
+      background:rgba(200,168,75,.2);
+    }
+    /* hide default cursor site-wide on desktop */
+    @media(pointer:fine){
+      *{cursor:none!important}
+    }
+    /* don't show custom cursor on touch */
+    @media(pointer:coarse){
+      #cur-outer,#cur-inner{display:none}
+    }
+
+    /* ══ HERO ══ */
+    #hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:3.5rem 3.2rem}
+    #hero .csec{position:relative;z-index:2}
+    .hglow{position:absolute;top:-160px;right:-80px;width:480px;height:480px;background:radial-gradient(circle,rgba(200,168,75,.07) 0%,transparent 70%);pointer-events:none;z-index:1}
+    .hbadge{display:inline-block;font-size:.67rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--g);border:1px solid rgba(200,168,75,.3);padding:.32rem .85rem;border-radius:var(--r);margin-bottom:1.3rem}
     .htitle{font-family:var(--ffd);font-weight:800;font-size:clamp(2.5rem,4.8vw,4.6rem);line-height:1;letter-spacing:-.03em}
     .htitle .out{-webkit-text-stroke:1px var(--t2);color:transparent}
     .hsub{font-size:.92rem;color:var(--t2);max-width:460px;line-height:1.85;margin-top:1.1rem}
@@ -174,9 +320,9 @@
     .snum{font-family:var(--ffd);font-size:2.2rem;font-weight:700;color:var(--g);line-height:1}
     .slbl{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--t3);margin-top:.22rem}
     .hctas{display:flex;gap:.8rem;margin-top:2rem;flex-wrap:wrap}
-    .btn-g{font-family:var(--ffb);font-size:.74rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;background:var(--g);color:var(--dk);border:2px solid var(--g);padding:.72rem 1.5rem;transition:all var(--dur);display:inline-flex;align-items:center;gap:.4rem}
+    .btn-g{font-family:var(--ffb);font-size:.74rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;background:var(--g);color:var(--dk);border:2px solid var(--g);padding:.72rem 1.5rem;border-radius:var(--r);transition:all var(--dur);display:inline-flex;align-items:center;gap:.4rem}
     .btn-g:hover{background:transparent;color:var(--g);transform:translateY(-2px)}
-    .btn-o{font-family:var(--ffb);font-size:.74rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;background:transparent;color:var(--t2);border:2px solid var(--bdr);padding:.72rem 1.5rem;transition:all var(--dur);display:inline-flex;align-items:center;gap:.4rem}
+    .btn-o{font-family:var(--ffb);font-size:.74rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;background:transparent;color:var(--t2);border:2px solid var(--bdr);padding:.72rem 1.5rem;border-radius:var(--r);transition:all var(--dur);display:inline-flex;align-items:center;gap:.4rem}
     .btn-o:hover{border-color:var(--g);color:var(--g);transform:translateY(-2px)}
 
     /* spinning badge */
@@ -187,11 +333,10 @@
     .spin-wrap:hover .spin-arr{color:var(--g)}
 
     /* ══ ABOUT ══ */
-    #about{background:var(--d)}
     .aimg{position:relative}
-    .aimg img{width:100%;filter:grayscale(.35);transition:filter .5s}
+    .aimg img{width:100%;filter:grayscale(.35);transition:filter .5s;border-radius:var(--r)}
     .aimg:hover img{filter:grayscale(0)}
-    .aimg::after{content:'';position:absolute;bottom:-9px;right:-9px;width:52%;height:52%;border:1px solid var(--g);z-index:-1}
+    .aimg::after{content:'';position:absolute;bottom:-9px;right:-9px;width:52%;height:52%;border:1px solid var(--g);border-radius:var(--r);z-index:-1}
     .atitle{font-family:var(--ffd);font-weight:700;font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1;letter-spacing:-.02em}
     .alead{font-size:.9rem;color:var(--t2);line-height:1.85;margin-top:.85rem}
     .igrid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;margin-top:1.7rem}
@@ -199,19 +344,33 @@
     .ival{font-size:.86rem;color:var(--t1);margin-top:.12rem}
     .ival a{color:var(--g)}
 
-    /* ══ SKILLS ══ */
-    #skills{background:var(--dk)}
-    .skb{margin-bottom:1.25rem}
-    .skh{display:flex;justify-content:space-between;margin-bottom:.4rem}
-    .skn{font-size:.73rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
-    .skp{font-family:var(--ffd);font-size:.78rem;font-weight:700;color:var(--g)}
-    .skt{height:2px;background:var(--bdr);position:relative}
-    .skf{height:100%;background:var(--g);width:0;transition:width 1.4s var(--ease);position:relative}
-    .skf::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);width:5px;height:5px;border-radius:50%;background:var(--g)}
+    /* ══ SKILLS — oval icon cards ══ */
+    .adv-grid{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:2.5rem}
+    .adv-card{display:flex;flex-direction:column;align-items:center;gap:.55rem;cursor:default}
+    .adv-oval{
+      width:140px;height:168px;
+      border:1px solid var(--bdr);
+      border-radius:80px;
+      background:rgba(24,24,24,.7);
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;
+      transition:border-color var(--dur),transform var(--dur),background var(--dur);
+      position:relative;overflow:hidden;
+    }
+    .adv-oval::before{content:'';position:absolute;inset:0;border-radius:80px;background:radial-gradient(ellipse at center,rgba(200,168,75,.08) 0%,transparent 70%);opacity:0;transition:opacity var(--dur)}
+    .adv-card:hover .adv-oval{border-color:rgba(200,168,75,.5);transform:translateY(-6px);background:rgba(30,28,22,.9)}
+    .adv-card:hover .adv-oval::before{opacity:1}
+    .adv-icon{width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:2rem}
+    .adv-icon img{width:40px;height:40px;object-fit:contain}
+    .adv-pct{font-family:var(--ffd);font-size:1.3rem;font-weight:700;color:var(--g);line-height:1}
+    .adv-name{font-size:.68rem;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--t2);text-align:center;margin-top:.05rem}
 
     /* ══ SERVICES ══ */
-    #services{background:var(--d)}
-    .svc{background:var(--cb);border:1px solid var(--bdr);padding:1.7rem;height:100%;position:relative;overflow:hidden;transition:border-color var(--dur),transform var(--dur)}
+    .svc{
+      background:var(--cb);border:1px solid var(--bdr);
+      padding:1.7rem;height:100%;position:relative;overflow:hidden;
+      border-radius:var(--r);
+      transition:border-color var(--dur),transform var(--dur);
+    }
     .svc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--g);transform:scaleX(0);transform-origin:left;transition:transform var(--dur)}
     .svc:hover{border-color:rgba(200,168,75,.28);transform:translateY(-4px)}
     .svc:hover::after{transform:scaleX(1)}
@@ -221,49 +380,46 @@
     .svd{font-size:.81rem;color:var(--t2);line-height:1.8}
 
     /* ══ RESUME ══ */
-    #resume{background:var(--dk)}
     .rctitle{font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--t2);margin-bottom:1.3rem;display:flex;align-items:center;gap:.45rem}
     .rctitle i{color:var(--g)}
     .tli{position:relative;padding-left:1.3rem;padding-bottom:2rem;border-left:1px solid var(--bdr)}
     .tli:last-child{padding-bottom:0;border-left-color:transparent}
-    .tld{position:absolute;left:-4px;top:4px;width:8px;height:8px;border:2px solid var(--g);background:var(--dk)}
+    .tld{position:absolute;left:-4px;top:4px;width:8px;height:8px;border:2px solid var(--g);background:var(--d);border-radius:50%}
     .tldt{font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g);margin-bottom:.28rem}
     .tlt{font-family:var(--ffd);font-weight:700;font-size:.92rem}
     .tlp{font-size:.72rem;color:var(--t3);margin-top:.12rem;font-style:italic}
     .tldesc{font-size:.8rem;color:var(--t2);margin-top:.65rem;line-height:1.75}
     .tldesc li{margin-bottom:.22rem}
-    .btn-dl{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--g);border:1px solid rgba(200,168,75,.28);padding:.5rem 1rem;background:transparent;transition:all var(--dur)}
+    .btn-dl{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--g);border:1px solid rgba(200,168,75,.28);padding:.5rem 1rem;border-radius:var(--r);background:transparent;transition:all var(--dur)}
     .btn-dl:hover{background:var(--gd);border-color:var(--g);color:var(--g)}
 
     /* ══ PORTFOLIO ══ */
-    #portfolio{background:var(--d)}
     .fbts{display:flex;gap:.38rem;flex-wrap:wrap;margin-bottom:1.8rem}
-    .fbt{font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;border:1px solid var(--bdr);background:transparent;color:var(--t3);padding:.32rem .85rem;cursor:pointer;transition:all var(--dur)}
+    .fbt{font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;border:1px solid var(--bdr);background:transparent;color:var(--t3);padding:.32rem .85rem;border-radius:var(--r);cursor:pointer;transition:all var(--dur)}
     .fbt:hover,.fbt.active{border-color:var(--g);color:var(--g);background:var(--gd)}
-    .pi{position:relative;overflow:hidden;background:var(--cb);border:1px solid var(--bdr);cursor:pointer;margin-bottom:.8rem}
-    .pi img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:grayscale(.2);transition:transform .5s ease,filter .42s ease}
+    .pi{position:relative;overflow:hidden;background:var(--cb);border:1px solid var(--bdr);border-radius:var(--r);cursor:pointer;margin-bottom:.8rem}
+    .pi img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:grayscale(.2);transition:transform .5s ease,filter .42s ease;border-radius:var(--r)}
     .pi:hover img{transform:scale(1.06);filter:grayscale(0)}
-    .pov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.88) 0%,transparent 60%);opacity:0;transition:opacity var(--dur);display:flex;align-items:flex-end;padding:1.1rem}
+    .pov{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.88) 0%,transparent 60%);border-radius:var(--r);opacity:0;transition:opacity var(--dur);display:flex;align-items:flex-end;padding:1.1rem}
     .pi:hover .pov{opacity:1}
     .ptag{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--g)}
     .pname{font-family:var(--ffd);font-size:.9rem;font-weight:700;margin-top:.18rem}
 
     /* ══ CONTACT ══ */
-    #contact{background:var(--dk)}
-    .ccard{background:var(--cb);border:1px solid var(--bdr);padding:2rem;height:100%}
+    .ccard{background:var(--cb);border:1px solid var(--bdr);padding:2rem;height:100%;border-radius:var(--r)}
     .ci{display:flex;align-items:flex-start;gap:.85rem;padding:.95rem 0;border-bottom:1px solid var(--bdr)}
     .ci:last-of-type{border-bottom:none}
-    .cico{width:36px;height:36px;border:1px solid var(--bdr);display:flex;align-items:center;justify-content:center;color:var(--g);font-size:.9rem;flex-shrink:0}
+    .cico{width:36px;height:36px;border:1px solid var(--bdr);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--g);font-size:.9rem;flex-shrink:0}
     .clbl{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--t3)}
     .cval{font-size:.85rem;color:var(--t1);margin-top:.12rem}
     .cval a{color:var(--t1);transition:color var(--dur)}
     .cval a:hover{color:var(--g)}
     .flbl{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--t3);margin-bottom:.38rem;display:block}
-    .finp{background:rgba(255,255,255,.025);border:1px solid var(--bdr);color:var(--t1);font-family:var(--ffb);font-size:.84rem;padding:.68rem .88rem;width:100%;outline:none;transition:border-color var(--dur),background var(--dur)}
+    .finp{background:rgba(255,255,255,.025);border:1px solid var(--bdr);color:var(--t1);font-family:var(--ffb);font-size:.84rem;padding:.68rem .88rem;width:100%;outline:none;border-radius:var(--r);transition:border-color var(--dur),background var(--dur)}
     .finp::placeholder{color:var(--t3)}
     .finp:focus{border-color:var(--g);background:rgba(200,168,75,.025)}
-    textarea.finp{resize:vertical;min-height:116px}
-    .fsend{width:100%;background:var(--g);color:var(--dk);font-family:var(--ffb);font-size:.73rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:none;padding:.8rem 1.4rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.42rem;transition:background var(--dur),transform var(--dur)}
+    textarea.finp{resize:vertical;min-height:116px;border-radius:20px}
+    .fsend{width:100%;background:var(--g);color:var(--dk);font-family:var(--ffb);font-size:.73rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;border:none;padding:.8rem 1.4rem;border-radius:var(--r);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.42rem;transition:background var(--dur),transform var(--dur)}
     .fsend:hover{background:var(--gl);transform:translateY(-1px)}
 
     /* ══ FOOTER ══ */
@@ -276,17 +432,36 @@
     .fcopy{font-size:.7rem;color:var(--t3)}
 
     /* ══ BACK TO TOP ══ */
-    #btt{position:fixed;bottom:1.4rem;right:calc(var(--nc) + .9rem);width:34px;height:34px;background:var(--g);color:var(--dk);display:flex;align-items:center;justify-content:center;font-size:.88rem;z-index:300;opacity:0;pointer-events:none;transition:opacity var(--dur),transform var(--dur)}
+    #btt{
+      position:fixed;bottom:1.4rem;
+      right:calc(var(--nav-pill-w) + 26px);
+      width:34px;height:34px;
+      background:var(--g);color:var(--dk);
+      display:flex;align-items:center;justify-content:center;
+      font-size:.88rem;border-radius:50%;
+      z-index:300;opacity:0;pointer-events:none;
+      transition:opacity var(--dur),transform var(--dur),right var(--dur) var(--ease);
+    }
     #btt.on{opacity:1;pointer-events:all}
     #btt:hover{transform:translateY(-2px);color:var(--dk)}
+    body.nav-open #btt{right:calc(var(--no) + 22px)}
 
     /* ══ MOBILE ══ */
     @media(max-width:1199px){:root{--sw:240px}}
     @media(max-width:991px){:root{--sw:210px}.igrid{grid-template-columns:1fr}.aimg::after{display:none}}
     @media(max-width:767px){
-      :root{--sw:0px;--nc:0px}
-      #sidebar{transform:translateX(-100%);width:260px;box-shadow:4px 0 20px rgba(0,0,0,.5);transition:transform var(--dur) var(--ease)}
-      #sidebar.on{transform:translateX(0)}
+      :root{--sw:0px;--nav-pill-w:0px}
+      #sidebar{
+        left:0;top:50px;transform:none;
+        width:260px;height:calc(100vh - 50px);
+        border-radius:0 var(--r) var(--r) 0;
+        box-shadow:4px 0 20px rgba(0,0,0,.5);
+        opacity:0;pointer-events:none;
+        transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);
+        transform:translateX(-100%);
+        max-height:calc(100vh - 50px);
+      }
+      #sidebar.on{opacity:1;pointer-events:all;transform:translateX(0)}
       #main-content{margin-left:0;margin-right:0}
       #right-nav{display:none}
       #mob-bar{display:flex!important}
@@ -310,7 +485,8 @@
     /* mobile drawer */
     #mob-drawer{
       position:fixed;top:50px;right:0;bottom:0;width:220px;
-      background:var(--d);border-left:1px solid var(--bdr);
+      background:rgba(18,18,18,.97);backdrop-filter:blur(12px);
+      border-left:1px solid var(--bdr);border-radius:var(--r) 0 0 var(--r);
       z-index:350;transform:translateX(100%);transition:transform var(--dur) var(--ease);
       display:flex;flex-direction:column;padding:.8rem 0;overflow-y:auto;
     }
@@ -328,6 +504,10 @@
 </head>
 <body>
 
+<!-- ══ CUSTOM CURSOR ══ -->
+<div id="cur-outer"></div>
+<div id="cur-inner"></div>
+
 <!-- ══ MOBILE BAR ══ -->
 <div id="mob-bar">
   <button class="mbb" id="mSbBtn" aria-label="Open profile"><i class="bi bi-person-circle"></i></button>
@@ -335,10 +515,8 @@
   <button class="mbb" id="mNavBtn" aria-label="Open menu"><i class="bi bi-list"></i></button>
 </div>
 
-<!-- overlay -->
 <div id="ov" role="presentation"></div>
 
-<!-- mobile nav drawer -->
 <nav id="mob-drawer" aria-label="Mobile navigation">
   <a href="#hero"      class="mda"><i class="bi bi-house"></i><span>Home</span></a>
   <a href="#about"     class="mda"><i class="bi bi-person"></i><span>About</span></a>
@@ -348,17 +526,19 @@
   <a href="#portfolio" class="mda"><i class="bi bi-images"></i><span>Portfolio</span></a>
   <a href="#contact"   class="mda"><i class="bi bi-envelope"></i><span>Contact</span></a>
   <div style="padding:.8rem 1.3rem;border-top:1px solid var(--bdr);margin-top:auto">
-    <a href="/cdn-cgi/l/email-protection#07747562626f66756e6362717747606a666e6b2964686a" class="btn-hire" style="border-radius:4px"><i class="bi bi-envelope-fill"></i>Hire Me</a>
+    <a href="/cdn-cgi/l/email-protection#e5969780808d84978c81809395a58288848c89cb868a88" class="btn-hire">
+      <i class="bi bi-envelope-fill"></i> Hire Me
+    </a>
   </div>
 </nav>
 
-<!-- ══ LAYOUT ══ -->
+<!-- ══ 3-PANEL LAYOUT ══ -->
 <div style="display:flex">
 
-  <!-- LEFT SIDEBAR -->
+  <!-- ────── LEFT SIDEBAR ────── -->
   <aside id="sidebar" aria-label="Profile sidebar">
     <div class="sb-toprow">
-      <div class="sb-brand">designer<span>hari</span><span class="sb-badge">D</span></div>
+      <div class="sb-brand">Designer<span>Hari</span><span class="sb-badge">D</span></div>
       <div class="sb-role">Web Developer &amp; Designer</div>
     </div>
 
@@ -369,9 +549,12 @@
     </div>
 
     <div class="sb-email mt-3">
-      <a href="/cdn-cgi/l/email-protection#6f1c1d0a0a070e1d060b0a191f2f08020e0603410c0002"><span class="__cf_email__" data-cfemail="8efdfcebebe6effce7eaebf8fecee9e3efe7e2a0ede1e3">[email&#160;protected]</span></a>
+      <a href="/cdn-cgi/l/email-protection#4033322525282132292425363000272d21292c6e232f2d"><span class="__cf_email__" data-cfemail="ff8c8d9a9a979e8d969b9a898fbf98929e9693d19c9092">[email&#160;protected]</span></a>
     </div>
-    <div class="sb-loc"><i class="bi bi-geo-alt" style="color:var(--g);font-size:.68rem"></i> Malappuram, Kerala, India</div>
+    <div class="sb-loc">
+      <i class="bi bi-geo-alt" style="color:var(--g);font-size:.66rem"></i>
+      Malappuram, Kerala, India
+    </div>
     <div class="sb-copy">&copy; <span id="yrs"></span> Sreehari. All Rights Reserved</div>
 
     <div class="sb-soc">
@@ -381,18 +564,22 @@
       <a href="https://www.linkedin.com/in/sreehari-kalarikkal-6a5216248" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
       <a href="https://dribbble.com/" target="_blank" rel="noopener" aria-label="Dribbble"><i class="bi bi-dribbble"></i></a>
     </div>
-    <a href="/cdn-cgi/l/email-protection#6e1d1c0b0b060f1c070a0b181e2e09030f0702400d0103" class="btn-hire"><i class="bi bi-envelope-fill"></i> Hire Me!</a>
+
+    <a href="/cdn-cgi/l/email-protection#b7c4c5d2d2dfd6c5ded3d2c1c7f7d0dad6dedb99d4d8da" class="btn-hire">
+      <i class="bi bi-envelope-fill"></i> Hire Me!
+    </a>
   </aside>
 
-  <!-- MAIN CONTENT -->
+  <!-- ────── MAIN CONTENT ────── -->
   <main id="main-content" role="main">
 
     <!-- HERO -->
     <section id="hero" aria-label="Introduction">
-      <div class="hgrid"></div><div class="hglow"></div>
+      <div class="hero-bg"></div>
+      <div class="hglow"></div>
       <div class="csec" style="padding-top:0;padding-bottom:0;min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative">
         <div class="rv" style="margin-bottom:.9rem">
-          <span style="display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--bdr);padding:.28rem .85rem;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--t2)">
+          <span style="display:inline-flex;align-items:center;gap:.45rem;border:1px solid var(--bdr);padding:.28rem .85rem;border-radius:30px;font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--t2)">
             <i class="bi bi-house" style="color:var(--g)"></i> Introduce
           </span>
         </div>
@@ -413,7 +600,7 @@
         <a href="#portfolio" class="spin-wrap rv" style="transition-delay:.4s" aria-label="View my projects">
           <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path id="cp" d="M55,8 A47,47 0 1,1 54.99,8" fill="none"/>
-            <text font-family="DM Sans,sans-serif" font-size="9.5" letter-spacing="7.2" fill="#484440">
+            <text font-family="DM Sans,sans-serif" font-size="9.5" letter-spacing="7.2" fill="#757575">
               <textPath href="#cp">MY PROJECTS • MY PROJECTS • </textPath>
             </text>
           </svg>
@@ -428,7 +615,7 @@
       <div class="row align-items-center g-5">
         <div class="col-lg-5 rv fl">
           <div class="aimg">
-            <img src="assets/img/sreehari-kalarikkal-web-dveloper-portfolio.png" alt="Sreehari Kalarikkal portfolio photo" width="460" height="500" loading="lazy"/>
+            <!-- <img src="assets/img/sreehari-kalarikkal-web-dveloper-portfolio.png" alt="Sreehari Kalarikkal portfolio photo" width="460" height="500" loading="lazy"/> -->
           </div>
         </div>
         <div class="col-lg-7 rv fr">
@@ -440,7 +627,7 @@
             <div><span class="ilbl">Birthday</span><span class="ival d-block">02 Mar 1991</span></div>
             <div><span class="ilbl">Degree</span><span class="ival d-block">Bachelor of Commerce</span></div>
             <div><span class="ilbl">Phone</span><span class="ival d-block"><a href="tel:+918907222751">+91 8907 222 751</a></span></div>
-            <div><span class="ilbl">Email</span><span class="ival d-block"><a href="/cdn-cgi/l/email-protection#52212037373a33203b3637242212353f333b3e7c313d3f"><span class="__cf_email__" data-cfemail="d4a7a6b1b1bcb5a6bdb0b1a2a494b3b9b5bdb8fab7bbb9">[email&#160;protected]</span></a></span></div>
+            <div><span class="ilbl">Email</span><span class="ival d-block"><a href="/cdn-cgi/l/email-protection#1f6c6d7a7a777e6d767b7a696f5f78727e7673317c7072"><span class="__cf_email__" data-cfemail="4033322525282132292425363000272d21292c6e232f2d">[email&#160;protected]</span></a></span></div>
             <div><span class="ilbl">Website</span><span class="ival d-block"><a href="https://www.designerhari.com" target="_blank" rel="noopener">designerhari.com</a></span></div>
             <div><span class="ilbl">Freelance</span><span class="ival d-block" style="color:var(--g)">Available</span></div>
           </div>
@@ -451,27 +638,76 @@
 
     <!-- SKILLS -->
     <section id="skills" class="csec" aria-labelledby="skh">
-      <div class="row g-5">
-        <div class="col-lg-5 rv">
-          <span class="slabel">Expertise</span>
-          <h2 id="skh" class="stitle">My <span class="gold">skills</span> &amp;<br>capabilities</h2>
-          <p style="color:var(--t2);font-size:.87rem;line-height:1.85;margin-top:.95rem">I continuously refine my skills to stay aligned with the latest design and development trends — a creative problem-solver who values collaboration to deliver tailored solutions.</p>
-        </div>
-        <div class="col-lg-7 rv" style="transition-delay:.1s">
-          <div class="row g-3">
-            <div class="col-sm-6">
-              <div class="skb" data-t="100"><div class="skh"><span class="skn">HTML5</span><span class="skp">100%</span></div><div class="skt"><div class="skf"></div></div></div>
-              <div class="skb" data-t="90"><div class="skh"><span class="skn">CSS3 / SASS</span><span class="skp">90%</span></div><div class="skt"><div class="skf"></div></div></div>
-              <div class="skb" data-t="75"><div class="skh"><span class="skn">JavaScript</span><span class="skp">75%</span></div><div class="skt"><div class="skf"></div></div></div>
-              <div class="skb" data-t="70"><div class="skh"><span class="skn">Bootstrap 5</span><span class="skp">70%</span></div><div class="skt"><div class="skf"></div></div></div>
-            </div>
-            <div class="col-sm-6">
-              <div class="skb" data-t="80"><div class="skh"><span class="skn">Adobe XD</span><span class="skp">80%</span></div><div class="skt"><div class="skf"></div></div></div>
-              <div class="skb" data-t="90"><div class="skh"><span class="skn">Photoshop</span><span class="skp">90%</span></div><div class="skt"><div class="skf"></div></div></div>
-              <div class="skb" data-t="55"><div class="skh"><span class="skn">Figma</span><span class="skp">55%</span></div><div class="skt"><div class="skf"></div></div></div>
-              <div class="skb" data-t="85"><div class="skh"><span class="skn">Illustrator</span><span class="skp">85%</span></div><div class="skt"><div class="skf"></div></div></div>
-            </div>
+      <div class="rv">
+        <span class="slabel">My Skills</span>
+        <h2 id="skh" class="stitle mt-1">My <span class="gold">Advantages</span></h2>
+      </div>
+      <div class="adv-grid rv" style="transition-delay:.1s">
+        <div class="adv-card">
+          <div class="adv-oval">
+            <div class="adv-icon" style="color:#e34f26"><i class="bi bi-filetype-html"></i></div>
+            <div class="adv-pct">100%</div>
           </div>
+          <div class="adv-name">HTML5</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-oval">
+            <div class="adv-icon" style="color:#1572b6"><i class="bi bi-filetype-css"></i></div>
+            <div class="adv-pct">90%</div>
+          </div>
+          <div class="adv-name">CSS3 / SASS</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-oval">
+            <div class="adv-icon" style="color:#f7df1e"><i class="bi bi-filetype-js"></i></div>
+            <div class="adv-pct">75%</div>
+          </div>
+          <div class="adv-name">JavaScript</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-oval">
+            <div class="adv-icon">
+              <svg width="38" height="38" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg"><rect width="128" height="128" rx="24" fill="#7952B3"/><path d="M37 26h35.5c9.3 0 16.4 2.2 20.6 6.3 3.2 3.2 4.9 7.3 4.9 12.4 0 9.1-5.2 14.9-12.2 17.3v.4c9.6 2.2 15.2 8.7 15.2 19 0 6.1-2.1 11.2-5.9 15-5.1 5-12.9 7.6-23.3 7.6H37V26zm18 32h16.2c8.5 0 13.4-3.8 13.4-10.3 0-6.8-4.7-10-13-10H55v20.3zm0 35.5H72c9.3 0 14.7-4 14.7-11.5 0-7.3-5.5-11.2-15-11.2H55v22.7z" fill="white"/></svg>
+            </div>
+            <div class="adv-pct">70%</div>
+          </div>
+          <div class="adv-name">Bootstrap 5</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-oval">
+            <div class="adv-icon">
+              <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg"><rect x="9" y="1" width="10" height="18" rx="5" fill="#FF7262"/><rect x="9" y="19" width="10" height="10" rx="5" fill="#1ABCFE"/><circle cx="24" cy="24" r="5" fill="#0ACF83"/><rect x="19" y="1" width="10" height="18" rx="5" fill="#A259FF"/><rect x="9" y="9" width="10" height="10" rx="5" fill="#F24E1E"/></svg>
+            </div>
+            <div class="adv-pct">55%</div>
+          </div>
+          <div class="adv-name">Figma</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-oval">
+            <div class="adv-icon">
+              <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg"><rect width="38" height="38" rx="8" fill="#FF2BC2"/><path d="M10 8l6 11-6 11h4.5l3.5-6.5L22 30h4.5l-6-11 6-11H22l-3.5 6.5L15 8H10z" fill="white"/><path d="M28 22c0 2.2-1.8 4-4 4a4 4 0 110-8c2.2 0 4 1.8 4 4z" fill="white"/></svg>
+            </div>
+            <div class="adv-pct">80%</div>
+          </div>
+          <div class="adv-name">Adobe XD</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-oval">
+            <div class="adv-icon">
+              <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg"><rect width="38" height="38" rx="8" fill="#001E36"/><path d="M7 27V11h6.5c2 0 3.6.6 4.7 1.7 1 1 1.6 2.4 1.6 4 0 1.7-.6 3.1-1.7 4.1-1.1 1-2.7 1.5-4.7 1.5H10v4.7H7zm3-7.4h3.3c1.2 0 2.1-.3 2.7-.9.6-.6.9-1.4.9-2.5 0-1-.3-1.8-.9-2.4-.6-.6-1.5-.9-2.7-.9H10v6.7zm12.5 7.8c-1 0-1.9-.2-2.7-.6-.8-.4-1.4-1-1.8-1.8-.4-.8-.6-1.7-.6-2.8 0-1 .2-2 .7-2.8.5-.8 1.1-1.4 2-1.8.8-.4 1.8-.6 2.8-.6.9 0 1.7.1 2.4.4v-4.4h3v13h-2.8l-.2-1.2c-.5.5-1 .8-1.6 1-.6.4-1.3.6-2.2.6zm.7-2.5c.6 0 1.2-.1 1.6-.4.5-.3.8-.6 1-.9v-4c-.6-.3-1.3-.4-2-.4-.9 0-1.6.3-2.1.8-.5.5-.8 1.3-.8 2.3 0 1 .3 1.8.8 2.3.5.3 1 .3 1.5.3z" fill="#31A8FF"/></svg>
+            </div>
+            <div class="adv-pct">90%</div>
+          </div>
+          <div class="adv-name">Photoshop</div>
+        </div>
+        <div class="adv-card">
+          <div class="adv-oval">
+            <div class="adv-icon">
+              <svg width="38" height="38" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg"><rect width="38" height="38" rx="8" fill="#330000"/><path d="M13.3 22.4l-1.5 4.6H9L14.6 11h3.8l5.7 16h-3l-1.5-4.6h-6.3zm5.6-2.4l-1.4-4.2c-.3-1-.6-2-.8-3h-.1c-.2 1-.5 2-.8 3l-1.4 4.2h4.5z" fill="#FF9A00"/><path d="M26.5 11h2.9v16h-2.9V11z" fill="#FF9A00"/></svg>
+            </div>
+            <div class="adv-pct">85%</div>
+          </div>
+          <div class="adv-name">Illustrator</div>
         </div>
       </div>
     </section>
@@ -508,7 +744,7 @@
       <div class="row g-5">
         <div class="col-lg-6 rv fl">
           <div class="rctitle"><i class="bi bi-briefcase"></i> Professional Experience</div>
-          <div class="tli"><div class="tld"></div><div class="tldt">2017 — Present</div><div class="tlt">Web Developer | PAGEMATICS</div><div class="tlp">Dallas, Plano, USA (Remote)</div><div class="tldesc"><p>Leading software development company — web design, cloud computing, mobile apps and QA services.</p><ul style="padding-left:1rem;margin-top:.38rem"><li>Designed &amp; developed 20+ responsive websites and web apps</li><li>Worked extensively with SmartWCM content management system</li><li>Delivered UI/UX design, mobile app UI and graphic design projects</li><li>Collaborated with cross-functional global teams</li></ul></div></div>
+          <div class="tli"><div class="tld"></div><div class="tldt">2017 — Present</div><div class="tlt">Web Developer | PAGEMATICS</div><div class="tlp">Dallas, Plano, USA (Remote)</div><div class="tldesc"><p>Leading software development company — web design, cloud computing, mobile apps and QA services.</p><ul style="padding-left:1rem;margin-top:.38rem"><li>Designed &amp; developed 20+ responsive websites and web apps</li><li>Worked with SmartWCM content management system</li><li>Delivered UI/UX design, mobile app UI and graphic design projects</li><li>Collaborated with cross-functional global teams</li></ul></div></div>
           <div class="tli"><div class="tld"></div><div class="tldt">2014 — 2017</div><div class="tlt">Graphic Designer | ASCO Graphics</div><div class="tlp">Perinthalmanna, Kerala</div><div class="tldesc"><ul style="padding-left:1rem"><li>Completed 80+ design projects: logos, brochures, book layouts, wedding cards</li><li>Built expertise in visual communication and creative brand storytelling</li></ul></div></div>
         </div>
         <div class="col-lg-6 rv fr">
@@ -528,20 +764,20 @@
         <h2 id="pfh" class="stitle mt-1">My <span class="gold">portfolio</span></h2>
         <p style="color:var(--t2);font-size:.87rem;max-width:500px;margin:1rem auto 0">From graphic design and branding to responsive websites and UI/UX — each project reflects creativity and function.</p>
       </div>
-      <div class="fbts justify-content-center rv" id="fbs">
+      <div class="fbts justify-content-center rv">
         <button class="fbt active" data-f="all">All</button>
         <button class="fbt" data-f="graphic">Graphic</button>
         <button class="fbt" data-f="logo">Logo</button>
         <button class="fbt" data-f="app">App UI</button>
       </div>
-      <div class="row g-3" id="pgrid">
-        <div class="col-sm-6 col-lg-4 pc rv" data-c="logo" style="transition-delay:.04s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-logo-women-on-trip.jpg" alt="Women On Trip Logo Design by Sreehari Kalarikkal" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Logo Design</div><div class="pname">Women On Trip</div></div></div></div></div>
-        <div class="col-sm-6 col-lg-4 pc rv" data-c="graphic" style="transition-delay:.08s"><div class="pi"><img src="assets/img/portfolio/sreehari-thapasya-kalagramam-.jpg" alt="Thapasya Kalagramam Graphic Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Graphic Design</div><div class="pname">Thapasya Kalagramam</div></div></div></div></div>
-        <div class="col-sm-6 col-lg-4 pc rv" data-c="logo" style="transition-delay:.12s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-logo-bce-bella-con-estilo.jpg" alt="Bella Con Estilo Logo Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Logo Design</div><div class="pname">Bella Con Estilo</div></div></div></div></div>
-        <div class="col-sm-6 col-lg-4 pc rv" data-c="logo" style="transition-delay:.16s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-logo-death-ink-tatoo.jpg" alt="Death Ink Tattoo Logo and Business Card" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Logo + Branding</div><div class="pname">Death Ink Tattoo</div></div></div></div></div>
-        <div class="col-sm-6 col-lg-4 pc rv" data-c="logo" style="transition-delay:.20s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-logo-greenroot.jpg" alt="Green Root Logo Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Logo Design</div><div class="pname">Green Root</div></div></div></div></div>
-        <div class="col-sm-6 col-lg-4 pc rv" data-c="app" style="transition-delay:.24s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-app-ui-befind.jpg" alt="Bfind Mobile App UI Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Mobile App UI</div><div class="pname">Bfind App</div></div></div></div></div>
-        <div class="col-sm-6 col-lg-4 pc rv" data-c="logo" style="transition-delay:.28s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-logo-oncart.jpg" alt="OnCart Logo Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Logo Design</div><div class="pname">OnCart</div></div></div></div></div>
+      <div class="row g-3">
+        <div class="col-sm-6 col-lg-4 pc rv" data-c="logo"    style="transition-delay:.04s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-logo-women-on-trip.jpg"      alt="Women On Trip Logo Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Logo Design</div><div class="pname">Women On Trip</div></div></div></div></div>
+        <div class="col-sm-6 col-lg-4 pc rv" data-c="graphic" style="transition-delay:.08s"><div class="pi"><img src="assets/img/portfolio/sreehari-thapasya-kalagramam-.jpg"               alt="Thapasya Kalagramam Graphic Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Graphic Design</div><div class="pname">Thapasya Kalagramam</div></div></div></div></div>
+        <div class="col-sm-6 col-lg-4 pc rv" data-c="logo"    style="transition-delay:.12s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-logo-bce-bella-con-estilo.jpg" alt="Bella Con Estilo Logo Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Logo Design</div><div class="pname">Bella Con Estilo</div></div></div></div></div>
+        <div class="col-sm-6 col-lg-4 pc rv" data-c="logo"    style="transition-delay:.16s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-logo-death-ink-tatoo.jpg"    alt="Death Ink Tattoo Logo" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Logo + Branding</div><div class="pname">Death Ink Tattoo</div></div></div></div></div>
+        <div class="col-sm-6 col-lg-4 pc rv" data-c="logo"    style="transition-delay:.20s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-logo-greenroot.jpg"           alt="Green Root Logo Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Logo Design</div><div class="pname">Green Root</div></div></div></div></div>
+        <div class="col-sm-6 col-lg-4 pc rv" data-c="app"     style="transition-delay:.24s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-app-ui-befind.jpg"            alt="Bfind Mobile App UI Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Mobile App UI</div><div class="pname">Bfind App</div></div></div></div></div>
+        <div class="col-sm-6 col-lg-4 pc rv" data-c="logo"    style="transition-delay:.28s"><div class="pi"><img src="assets/img/portfolio/sreehari-kalarikkal-logo-oncart.jpg"              alt="OnCart Logo Design" loading="lazy" width="400" height="300"/><div class="pov"><div><div class="ptag">Logo Design</div><div class="pname">OnCart</div></div></div></div></div>
       </div>
     </section>
     <div class="divline"></div>
@@ -557,7 +793,7 @@
         <div class="col-lg-5 rv fl">
           <div class="ccard h-100">
             <div class="ci"><div class="cico"><i class="bi bi-geo-alt"></i></div><div><div class="clbl">Location</div><div class="cval">Malappuram, Kerala, India</div></div></div>
-            <div class="ci"><div class="cico"><i class="bi bi-envelope"></i></div><div><div class="clbl">Email</div><div class="cval"><a href="/cdn-cgi/l/email-protection#1d6e6f7878757c6f7479786b6d5d7a707c7471337e7270"><span class="__cf_email__" data-cfemail="9deeeff8f8f5fceff4f9f8ebedddfaf0fcf4f1b3fef2f0">[email&#160;protected]</span></a></div></div></div>
+            <div class="ci"><div class="cico"><i class="bi bi-envelope"></i></div><div><div class="clbl">Email</div><div class="cval"><a href="/cdn-cgi/l/email-protection#1d6e6f7878757c6f7479786b6d5d7a707c7471337e7270"><span class="__cf_email__" data-cfemail="cbb8b9aeaea3aab9a2afaebdbb8baca6aaa2a7e5a8a4a6">[email&#160;protected]</span></a></div></div></div>
             <div class="ci"><div class="cico"><i class="bi bi-telephone"></i></div><div><div class="clbl">Phone</div><div class="cval"><a href="tel:+918907222751">+91 8907 222 751</a></div></div></div>
             <div class="ci"><div class="cico"><i class="bi bi-globe"></i></div><div><div class="clbl">Website</div><div class="cval"><a href="https://www.designerhari.com" target="_blank" rel="noopener">www.designerhari.com</a></div></div></div>
             <div class="sb-soc mt-2">
@@ -597,20 +833,23 @@
     </footer>
   </main>
 
-  <!-- RIGHT NAV -->
+  <!-- ────── RIGHT NAV — floating pill ────── -->
   <nav id="right-nav" aria-label="Section navigation">
+    <!-- hamburger toggle at top -->
     <button class="ham" id="hamBtn" aria-label="Toggle navigation" aria-expanded="false">
       <i class="bi bi-list" id="hamIco"></i>
     </button>
+
     <ul class="rlist" role="list">
       <li><a href="#hero"      class="active"><span class="ricon"><i class="bi bi-house"></i></span><span class="rlabel">Home</span></a></li>
       <li><a href="#about">             <span class="ricon"><i class="bi bi-person"></i></span><span class="rlabel">About</span></a></li>
-      <li><a href="#skills">            <span class="ricon"><i class="bi bi-bar-chart"></i></span><span class="rlabel">Skills</span></a></li>
-      <li><a href="#services">          <span class="ricon"><i class="bi bi-grid"></i></span><span class="rlabel">Services</span></a></li>
-      <li><a href="#resume">            <span class="ricon"><i class="bi bi-file-earmark-text"></i></span><span class="rlabel">Resume</span></a></li>
+      <li><a href="#skills">            <span class="ricon"><i class="bi bi-bar-chart-line"></i></span><span class="rlabel">Skills</span></a></li>
+      <li><a href="#services">          <span class="ricon"><i class="bi bi-grid-1x2"></i></span><span class="rlabel">Services</span></a></li>
+      <li><a href="#resume">            <span class="ricon"><i class="bi bi-file-earmark-person"></i></span><span class="rlabel">Resume</span></a></li>
       <li><a href="#portfolio">         <span class="ricon"><i class="bi bi-images"></i></span><span class="rlabel">Portfolio</span></a></li>
       <li><a href="#contact">           <span class="ricon"><i class="bi bi-envelope"></i></span><span class="rlabel">Contact</span></a></li>
     </ul>
+
     <div class="rsocial">
       <a href="https://mobile.twitter.com/SreehariKalari1" target="_blank" rel="noopener" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
       <a href="https://www.linkedin.com/in/sreehari-kalarikkal-6a5216248" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
@@ -637,23 +876,25 @@ const hamIco = q('hamIco');
 hamBtn.addEventListener('click', e => {
   e.stopPropagation();
   const open = rNav.classList.toggle('open');
+  document.body.classList.toggle('nav-open', open);
   hamBtn.setAttribute('aria-expanded', open);
   hamIco.className = open ? 'bi bi-x-lg' : 'bi bi-list';
 });
 document.addEventListener('click', e => {
   if(rNav.classList.contains('open') && !rNav.contains(e.target)){
     rNav.classList.remove('open');
+    document.body.classList.remove('nav-open');
     hamBtn.setAttribute('aria-expanded','false');
     hamIco.className = 'bi bi-list';
   }
 });
 
 /* ── MOBILE ── */
-const sidebar   = q('sidebar');
-const ov        = q('ov');
-const drawer    = q('mob-drawer');
-const mNavBtn   = q('mNavBtn');
-const mSbBtn    = q('mSbBtn');
+const sidebar = q('sidebar');
+const ov      = q('ov');
+const drawer  = q('mob-drawer');
+const mNavBtn = q('mNavBtn');
+const mSbBtn  = q('mSbBtn');
 
 function closeAll(){
   drawer.classList.remove('on');
@@ -687,57 +928,28 @@ qq('a[href^="#"]').forEach(a => {
   });
 });
 
-/* ── ACTIVE NAV (scroll) ── */
-const secs   = qq('section[id]');
-const rLinks = qq('#right-nav .rlist a');
-const mLinks = qq('.mda');
+/* ── ACTIVE NAV LINK ── */
+const secs     = qq('section[id]');
+const rLinks   = qq('#right-nav .rlist a');
+const mLinks   = qq('.mda');
 const allLinks = [...rLinks, ...mLinks];
 
-new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      const id = '#'+e.target.id;
-      allLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
-    }
-  });
-}, { threshold:.3 }).observe ? (secs.forEach(s => {
-  const obs = new IntersectionObserver(en => {
+secs.forEach(s => {
+  new IntersectionObserver(en => {
     en.forEach(e => {
       if(e.isIntersecting){
         const id = '#'+e.target.id;
         allLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === id));
       }
     });
-  },{ threshold:.32 });
-  obs.observe(s);
-})) : null;
+  },{threshold:.32}).observe(s);
+});
 
-/* ── REVEAL ── */
-new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); } });
-},{ threshold:.1, rootMargin:'0px 0px -28px 0px' })
-.constructor.prototype.observe && (() => {
-  const ro = new IntersectionObserver(en => {
-    en.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); } });
-  },{ threshold:.1, rootMargin:'0px 0px -28px 0px' });
-  qq('.rv').forEach(el => ro.observe(el));
-})();
-
-/* ── SKILL BARS ── */
-let sOn = false;
-const sk = q('skills');
-if(sk){
-  const sObs = new IntersectionObserver(en => {
-    if(en[0].isIntersecting && !sOn){
-      sOn = true;
-      qq('.skb').forEach(b => {
-        const f = b.querySelector('.skf');
-        if(f) f.style.width = (b.dataset.t||0)+'%';
-      });
-    }
-  },{ threshold:.25 });
-  sObs.observe(sk);
-}
+/* ── SCROLL REVEAL ── */
+const ro = new IntersectionObserver(en => {
+  en.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); } });
+},{threshold:.1, rootMargin:'0px 0px -28px 0px'});
+qq('.rv').forEach(el => ro.observe(el));
 
 /* ── PORTFOLIO FILTER ── */
 qq('.fbt').forEach(btn => {
@@ -763,11 +975,67 @@ qq('.fbt').forEach(btn => {
 const btt = q('btt');
 window.addEventListener('scroll', () => {
   btt.classList.toggle('on', scrollY > 380);
-  const nw = rNav.classList.contains('open')
-    ? getComputedStyle(document.documentElement).getPropertyValue('--no')
-    : getComputedStyle(document.documentElement).getPropertyValue('--nc');
-  if(window.innerWidth > 767) btt.style.right = `calc(${nw.trim()} + .9rem)`;
-},{ passive:true });
+  if(window.innerWidth > 767){
+    const nw = rNav.classList.contains('open')
+      ? getComputedStyle(document.documentElement).getPropertyValue('--no')
+      : getComputedStyle(document.documentElement).getPropertyValue('--nav-pill-w');
+    btt.style.right = `calc(${nw.trim()} + 22px)`;
+  }
+},{passive:true});
+
+
+
+/* ════════════════════════════════════════
+   CUSTOM CURSOR
+   ════════════════════════════════════════ */
+(function(){
+  if(window.matchMedia('(pointer:coarse)').matches) return;
+
+  const outer = document.getElementById('cur-outer');
+  const inner = document.getElementById('cur-inner');
+  if(!outer || !inner) return;
+
+  let ox=0,oy=0,ix=0,iy=0,tx=0,ty=0;
+
+  document.addEventListener('mousemove', e=>{
+    tx = e.clientX; ty = e.clientY;
+    /* inner dot follows instantly */
+    ix = tx; iy = ty;
+    inner.style.left = ix+'px';
+    inner.style.top  = iy+'px';
+  },{passive:true});
+
+  /* outer ring lags behind */
+  function loop(){
+    ox += (tx - ox) * 0.12;
+    oy += (ty - oy) * 0.12;
+    outer.style.left = ox+'px';
+    outer.style.top  = oy+'px';
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  /* hover: enlarge on interactive elements */
+  const hoverSel = 'a,button,.adv-card,.pi,.svc,.fbt,.btn-g,.btn-o,.btn-hire,.fsend';
+  document.querySelectorAll(hoverSel).forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('cur-hover'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-hover'));
+  });
+  /* also handle dynamically via event delegation */
+  document.addEventListener('mouseover', e=>{
+    if(e.target.closest(hoverSel)) document.body.classList.add('cur-hover');
+    else document.body.classList.remove('cur-hover');
+  });
+
+  /* click pulse */
+  document.addEventListener('mousedown',()=>document.body.classList.add('cur-click'));
+  document.addEventListener('mouseup',()=>document.body.classList.remove('cur-click'));
+
+  /* hide when leaving window */
+  document.addEventListener('mouseleave',()=>{ outer.style.opacity='0'; inner.style.opacity='0'; });
+  document.addEventListener('mouseenter',()=>{ outer.style.opacity='1'; inner.style.opacity='1'; });
+})();
 </script>
+
 </body>
 </html>
