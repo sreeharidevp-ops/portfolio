@@ -449,7 +449,7 @@
     @media(max-width:1199px){:root{--sw:240px}}
     @media(max-width:991px){:root{--sw:210px}.igrid{grid-template-columns:1fr}.aimg::after{display:none}}
     @media(max-width:767px){
-      :root{--sw:0px;--nav-pill-w:0px}
+      :root{--sw:0px;}
       #sidebar{
         left:0;top:50px;transform:none;
         width:260px;height:calc(100vh - 50px);
@@ -467,6 +467,10 @@
       .csec{padding:3.5rem 1.4rem}
       footer{padding:1.3rem 1.4rem}
       #btt{right:.9rem}
+	  #hero, #about, #skills, #services, #resume, #portfolio, #contact, footer {
+		padding-left: calc(var(--sw) + 38px);
+		padding-right: calc(var(--nav-pill-w) + 0px);
+	}
     }
 	@media(max-width:575px){
 		footer {
